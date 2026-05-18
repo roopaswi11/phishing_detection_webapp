@@ -8,7 +8,8 @@ app = Flask(__name__,
             static_folder="../frontend/static")
 
 # Load trained model
-model = joblib.load("optimized_model.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model = joblib.load(os.path.join(BASE_DIR, "optimized_model.pkl"))
 
 @app.route("/")
 def home():
